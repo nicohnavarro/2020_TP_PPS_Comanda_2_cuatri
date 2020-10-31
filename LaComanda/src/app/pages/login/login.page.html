@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="light" class="ion-text-center">
+      La Comanda
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+  <ion-card color="light" class="ion-margin-vertical">
+    <ion-card-header>
+      <ion-row class="ion-justify-content-center">
+        <img src="assets/icon/icon.png" alt="icono" width="100" height="100">
+      </ion-row>
+    </ion-card-header>
+  
+    <ion-card-content class="ion-padding"> 
+      <form>
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input type="text" name="correo" [(ngModel)]="correo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Clave</ion-label>
+          <ion-input type="password" name="clave" [(ngModel)]="clave"></ion-input>
+        </ion-item>
+
+        <ion-button shape="round" expand="full" class="ion-margin-top" (click)="login()">
+          <ion-text color="light">Enviar</ion-text>
+        </ion-button>
+
+        <ion-item>
+          <ion-label>Ingreso Rápido</ion-label>
+          <ion-select name="perfil" (ionChange)="usuarioSeleccionado($event)">
+            <ion-select-option value="administrador">Supervisor</ion-select-option>
+            <ion-select-option value="invitado">Empleado</ion-select-option>
+            <ion-select-option value="tester">Tester</ion-select-option>
+            <ion-select-option value="usuario">Usuario</ion-select-option>
+            <ion-select-option value="anonimo">Anonimo</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

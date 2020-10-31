@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lacomanda-4960e": {
+      "hosting": {
+        "app": [
+          "lacomanda-4960e"
+        ]
+      }
+    }
+  }
+}
