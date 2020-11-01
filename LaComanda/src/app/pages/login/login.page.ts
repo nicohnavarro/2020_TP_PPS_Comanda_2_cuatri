@@ -8,10 +8,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  correo: string;
-  clave: string;
-  enEspera: boolean = false;
+  listar:boolean=false;
+  clave:string;
+  correo:string;
+  cargando:boolean=false;
+  passwordType:string = 'password';
+  eyeType:string = 'eye-off-outline';
+  passwordShown:boolean = false;
+  public splash = true;
 
   constructor(
     private authService: AuthService,
@@ -20,9 +24,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+  
 
-  login(): void {
-    this.enEspera = true;
+  onLogin(){
+    console.log("login");
+    this.cargando = true;
 
     this.authService.login(this.correo, this.clave).then(() => {
       
@@ -32,12 +38,28 @@ export class LoginPage implements OnInit {
         message: 'Error, por favor verifique que los campos sean correctos',
         position: 'bottom',
         duration: 2000,
+        color: 'danger',
+        
       })
       .then(t => t.present());
     })
     .finally(() => {
-      this.enEspera = false;
+      this.cargando = false;
     });
+  }
+
+
+  private tooglePassword() {
+    if(this.passwordShown){
+      this.passwordShown = false;
+      this.passwordType = 'password';
+      this.eyeType = 'eye-off-outline';
+    }else{
+      this.passwordShown = true;
+      this.passwordType = 'text';
+      this.eyeType = 'eye-outline';
+    }
+
   }
 
   usuarioSeleccionado({currentTarget}) {

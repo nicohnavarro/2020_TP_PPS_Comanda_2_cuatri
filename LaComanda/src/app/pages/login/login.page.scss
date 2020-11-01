@@ -1,0 +1,89 @@
+.icon {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+ion-toolbar {
+    --ion-toolbar-background: linear-gradient(to right, #000000, #434343);
+    --ion-toolbar-color: white;
+}
+
+.avatar {
+    border: 1px solid white;
+    margin: 3px;
+}
+
+ion-item {
+    --background: transparent;
+    --color: white;
+    --border-color: #e03a00;
+    --border-width: 2px solid;
+    --border-radius: 5rem;
+    //--border-style: 2px solid #273B7A;
+}
+
+ion-content {
+    --background: transparent;
+}
+
+ion-content.background {
+    --background: url(../../../assets/img/menu_hamburguesa.jpg) 0 0/100% 100% no-repeat;
+    // --background: #e03a00;
+}
+
+ion-alert {
+    --background: #e03a00!important;
+}
+
+ion-badge {
+    margin: 2px;
+}
+
+.inicio {
+    margin: 1rem;
+    background-color: transparent;
+    height: 40%;
+}
+
+.fin {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.boton {
+    margin: 0.2rem;
+    margin-top: 0;
+    padding: 0.2rem;
+    height: 4rem;
+}
+
+.comun {
+    width: 60%;
+}
+
+.btn-img {
+    width: 30%;
+}
+
+ion-button {
+    --border-radius: 25px;
+}
+
+.recordarme {
+    //padding: 1rem;
+    margin: 1rem 3rem;
+    font-size: 1em;
+    background-color: #e03a00;
+}
+
+.campos {
+    margin: 1rem;
+}
+
+.error_toast {
+    color: white;
+    font-weight: 400;
+    background-color: #e24825;
+}
