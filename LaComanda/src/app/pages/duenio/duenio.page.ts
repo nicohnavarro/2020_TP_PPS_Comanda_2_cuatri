@@ -18,7 +18,10 @@ export class DuenioPage implements OnInit {
   ngOnInit() {
   }
 
-  
+ recibir_info(info:any){
+   alert(info)
+
+ }
 
   presentActionSheet(): void {
     this.actionSheetCtlr.create({

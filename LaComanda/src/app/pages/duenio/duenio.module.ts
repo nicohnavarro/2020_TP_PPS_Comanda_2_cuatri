@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DuenioPageRoutingModule } from './duenio-routing.module';
 
 import { DuenioPage } from './duenio.page';
+import { QrLectorComponent } from 'src/app/components/qr-lector/qr-lector.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { DuenioPage } from './duenio.page';
     IonicModule,
     DuenioPageRoutingModule
   ],
-  declarations: [DuenioPage]
+  declarations: [DuenioPage,QrLectorComponent]
 })
 export class DuenioPageModule {}
