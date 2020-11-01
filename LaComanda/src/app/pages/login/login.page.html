@@ -28,10 +28,10 @@
   </div>
   <img class="btn-img" src="../../../assets/qr.PNG" alt="" (click)="registerqr()">
   <div class="fin">
-      <ion-button class="boton" expand="block" color="primary" *ngIf=" !cargando " (click)="onLogin() ">Ingresar</ion-button>
+      <ion-button class="boton" expand="block" color="primary" *ngIf=" !cargando " (click)="Login() ">Ingresar</ion-button>
       <ion-button class="boton" expand="block" color="danger " *ngIf="cargando ">
           <ion-spinner name="crescent "></ion-spinner>
           Cargando...</ion-button>
-      <ion-button class="boton" expand="block" color="warning" (click)="register()">Registro</ion-button>
+      <ion-button class="boton" expand="block" color="warning" (click)="Register()">Registro</ion-button>
   </div>
 </ion-content>

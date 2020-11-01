@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,14 +20,18 @@ export class LoginPage implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private toastCtlr: ToastController  
+    private toastCtlr: ToastController,
+    private router: Router 
   ) { }
 
   ngOnInit() {
   }
   
+  Register(){
+    this.router.navigate(['duenio'])
+  }
 
-  onLogin(){
+  Login(){
     console.log("login");
     this.cargando = true;
 

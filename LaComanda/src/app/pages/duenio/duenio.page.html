@@ -16,4 +16,5 @@
   <div class="qr">
     <app-qr-lector (info_escaneada)=recibir_info($event)></app-qr-lector>
   </div>
+  <app-camera-selector (image_taken)=recibir_foto($event)></app-camera-selector>
 </ion-content>
