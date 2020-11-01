@@ -14,6 +14,6 @@
     <ion-text color="light">Alta Dueño / Supervisor</ion-text>
   </ion-button>
   <div class="qr">
-    <app-qr-lector (info_escaneada)=recibir_info()></app-qr-lector>
+    <app-qr-lector (info_escaneada)=recibir_info($event)></app-qr-lector>
   </div>
 </ion-content>
