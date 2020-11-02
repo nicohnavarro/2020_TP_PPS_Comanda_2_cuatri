@@ -68,7 +68,7 @@ export class AltaDuenioComponent implements OnInit {
   }
 
   async cargar_perfil(perfil:string,cred:any,task:any){
-    if(this.perfil === 'duenio'){
+    if(perfil === 'DUEÑO'){
       const duenio: Duenio = {
         authId: cred.user.uid,
         nombre: this.nombre,

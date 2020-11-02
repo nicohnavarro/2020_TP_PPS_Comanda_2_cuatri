@@ -21,6 +21,9 @@ ion-item {
     --border-width: 2px solid;
     --border-radius: 5rem;
     //--border-style: 2px solid #273B7A;
+    ion-select{
+        padding: 0.4rem;
+    }
 }
 
 ion-content {
