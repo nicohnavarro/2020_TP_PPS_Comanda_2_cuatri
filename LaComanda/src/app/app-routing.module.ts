@@ -18,11 +18,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  },  {
+  },
+  {
     path: 'alta-empleado',
     loadChildren: () => import('./pages/alta-empleado/alta-empleado.module').then( m => m.AltaEmpleadoPageModule)
+  },  {
+    path: 'alta-producto',
+    loadChildren: () => import('./pages/alta-producto/alta-producto.module').then( m => m.AltaProductoPageModule)
   },
-
 
 ];
 

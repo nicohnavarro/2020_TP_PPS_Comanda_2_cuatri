@@ -19,6 +19,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
+import { MediaCapture } from '@ionic-native/media-capture/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -30,7 +33,7 @@ import { File } from '@ionic-native/file/ngx';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     StatusBar,
@@ -38,7 +41,9 @@ import { File } from '@ionic-native/file/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     BarcodeScanner,
     Camera,
-    File
+    File,
+    Base64ToGallery,
+    MediaCapture
   ],
   bootstrap: [AppComponent]
 })
