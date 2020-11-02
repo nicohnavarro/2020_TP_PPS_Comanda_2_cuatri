@@ -1,8 +1,9 @@
 export interface Duenio {
   docId?: string,
-  nombre: string,
-  apellido: string,
-  foto: string,
-  perfil: string,
-  clave: string,
+  authId?: string,
+  nombre: string;
+  apellido: string;
+  dni: string;
+  cuil: string;
+  foto: string;
 }

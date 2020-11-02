@@ -1,3 +1,9 @@
-<ion-button class="ion-text-center" color="tertiary" (click)="tomarFoto()">
-  <ion-icon slot="icon-only" name="camera"></ion-icon>
-</ion-button>
+<div class="caja_icon" (click)='tomar_foto()' *ngIf='!imagen_enviada'>
+    <img src="../../../assets/img/camera.png" alt="">
+    <span>{{title}}</span>
+</div>
+
+<div class="caja_icon" *ngIf='imagen_enviada'>
+    <img [src]=imagen_cargada alt="">
+    <ion-button color="danger" (click)="tomar_otra()">No me gusto</ion-button>
+</div>

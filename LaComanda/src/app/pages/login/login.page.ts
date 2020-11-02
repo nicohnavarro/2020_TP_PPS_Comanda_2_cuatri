@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginPage implements OnInit {
   listar:boolean=false;
   clave:string;
+  perfil:string;
   correo:string;
   cargando:boolean=false;
   passwordType:string = 'password';
@@ -70,26 +71,26 @@ export class LoginPage implements OnInit {
   usuarioSeleccionado({currentTarget}) {
     
     switch(currentTarget.value) {
-      case 'tester':
-        this.correo = 'tester@tester.com';
-        this.clave = '555555';
+      case 0:
+        this.correo = 'duenio@duenio.com';
+        this.clave = '123123';
       break;
-      case 'administrador':
-        this.correo = 'admin@admin.com';
-        this.clave = '111111';
+      case 1:
+        this.correo = 'supervisor@supervisor.com';
+        this.clave = '123123';
       break;
 
-      case 'invitado':
+      case 2:
         this.correo = 'invitado@invitado.com';
         this.clave = '222222';
       break;
 
-      case 'anonimo':
+      case 3:
         this.correo = 'anonimo@anonimo.com';
         this.clave = '444444';
       break;
 
-      case 'usuario':
+      case 4:
         this.correo = 'usuario@usuario.com';
         this.clave = '333333';
       break;

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Camera, Direction } from '@ionic-native/camera/ngx';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { DNI } from '../../models/dni.enum';
@@ -10,7 +10,10 @@ import { File } from '@ionic-native/file/ngx';
   styleUrls: ['./camera-selector.component.scss'],
 })
 export class CameraSelectorComponent implements OnInit {
+  @Input() title:string;
+  @Input() imagen_cargada:string;
   @Output() image_taken: EventEmitter<any> = new EventEmitter<any>();
+  imagen_enviada:boolean=false;
   img: string;
   imagenVista = 'assets/img/noimage.png';
   constructor(private file: File,
@@ -29,20 +32,25 @@ export class CameraSelectorComponent implements OnInit {
     toast.present();
   }
 
-  tomarFoto(): void {
+  tomar_foto(): void {
     this.camera.getPicture({cameraDirection: Direction.BACK, correctOrientation: true}).then(imageData => {
       this.img = imageData;
 
       this.file.readAsDataURL(Utils.getDirectory(imageData), Utils.getFilename(imageData))
       .then(base64Url => {
         this.imagenVista = base64Url;
-        alert(this.imagenVista);
-        alert(base64Url);
         this.image_taken.emit(this.imagenVista);
+        this.imagen_enviada=true;
       })
       .catch(err => {
         this.presentToast(err,'danger');
+        this.imagen_enviada=false;
       })
     });
+  }
+
+  tomar_otra(){
+    this.imagen_cargada='';
+    this.imagen_enviada=false;
   }
 }

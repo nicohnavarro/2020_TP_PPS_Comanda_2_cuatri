@@ -9,6 +9,7 @@ import { DuenioPageRoutingModule } from './duenio-routing.module';
 import { DuenioPage } from './duenio.page';
 import { QrLectorComponent } from 'src/app/components/qr-lector/qr-lector.component';
 import { CameraSelectorComponent } from 'src/app/components/camera-selector/camera-selector.component';
+import { AltaDuenioComponent } from './alta-duenio/alta-duenio.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { CameraSelectorComponent } from 'src/app/components/camera-selector/came
     IonicModule,
     DuenioPageRoutingModule
   ],
-  declarations: [DuenioPage,QrLectorComponent,CameraSelectorComponent]
+  declarations: [DuenioPage,QrLectorComponent,CameraSelectorComponent,AltaDuenioComponent]
 })
 export class DuenioPageModule {}

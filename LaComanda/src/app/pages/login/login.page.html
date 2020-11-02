@@ -1,37 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-title text-center slot="start">Iniciar sesión</ion-title>
-      <ion-avatar slot="end" class="avatar">
-          <img src="../../../assets/img/imgicon.jpg">
-      </ion-avatar>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title text-center slot="start">Iniciar sesión</ion-title>
+        <ion-avatar slot="end" class="avatar">
+            <img src="../../../assets/img/imgicon.jpg">
+        </ion-avatar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding scroll="false" padding class="background">
 
-  <ion-item lines="none" class="campos">
-      <ion-label autocomplete="on" position="floating">Correo electrónico</ion-label>
-      <ion-input type="email" name="correo" [(ngModel)]="correo" required></ion-input>
+    <ion-item lines="none" class="campos">
+        <ion-label autocomplete="on" position="floating">Correo electrónico</ion-label>
+        <ion-input type="email" name="correo" [(ngModel)]="correo" required></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="campos">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [type]="passwordType" name="contrasena" [(ngModel)]="clave" required></ion-input>
+        <ion-icon slot="end" [name]="eyeType" color="white" (click)="tooglePassword()" style="zoom:1.2;"></ion-icon>
+    </ion-item>
 
-  </ion-item>
-  <ion-item lines="none" class="campos">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input [type]="passwordType" name="contrasena" [(ngModel)]="clave" required></ion-input>
-      <ion-icon slot="end" [name]="eyeType" color="white" (click)="tooglePassword()" style="zoom:1.2;"></ion-icon>
-  </ion-item>
+    <div class="inicio">
+        <div class="cajaImagen">
+            <ion-item>
+                <ion-label>Inicio Rapido</ion-label>
+                <ion-select placeholder="Seleccionar" name="perfil" [(ngModel)]="perfil"
+                    (ionChange)="usuarioSeleccionado($event)">
+                    <ion-select-option value="0">Dueño</ion-select-option>
+                    <ion-select-option value="1">Supervisor</ion-select-option>
+                    <ion-select-option value="2">Empleado</ion-select-option>
+                    <ion-select-option value="3">Cliente</ion-select-option>
+                    <ion-select-option value="4">Anonimo</ion-select-option>
+                </ion-select>
+            </ion-item>
 
-  <div class="inicio">
-      <div class="cajaImagen">
-          <!-- <img class="icon" src="../../assets/.png" alt=" "> -->
-
-      </div>
-  </div>
-  <img class="btn-img" src="../../../assets/qr.PNG" alt="" (click)="registerqr()">
-  <div class="fin">
-      <ion-button class="boton" expand="block" color="primary" *ngIf=" !cargando " (click)="Login() ">Ingresar</ion-button>
-      <ion-button class="boton" expand="block" color="danger " *ngIf="cargando ">
-          <ion-spinner name="crescent "></ion-spinner>
-          Cargando...</ion-button>
-      <ion-button class="boton" expand="block" color="warning" (click)="Register()">Registro</ion-button>
-  </div>
+        </div>
+    </div>
+    <div class="fin">
+        <ion-button class="boton" expand="block" color="primary" *ngIf=" !cargando " (click)="Login() ">Ingresar
+        </ion-button>
+        <ion-button class="boton" expand="block" color="danger " *ngIf="cargando ">
+            <ion-spinner name="crescent "></ion-spinner>
+            Cargando...
+        </ion-button>
+        <ion-button class="boton" expand="block" color="warning" (click)="Register()">Registro</ion-button>
+    </div>
 </ion-content>

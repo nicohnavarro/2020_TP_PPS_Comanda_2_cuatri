@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color='primary'>
+    <ion-back-button slot="start" routerLink=".."></ion-back-button>
+      <ion-title text-center slot="start">Alta de Dueño</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item lines="none" class="campos">
+    <ion-label autocomplete="on" position="floating">Nombre</ion-label>
+    <ion-input type="text" name="nombre" [(ngModel)]="nombre" required></ion-input>
+</ion-item>
+<ion-item lines="none" class="campos">
+  <ion-label autocomplete="on" position="floating">Apellido</ion-label>
+  <ion-input type="apellido" name="apellido" [(ngModel)]="apellido" required></ion-input>
+</ion-item>
+<ion-item lines="none" class="campos">
+  <ion-label autocomplete="on" position="floating">DNI</ion-label>
+  <ion-input type="number" name="dni" [(ngModel)]="dni" required></ion-input>
+</ion-item>
+<ion-item lines="none" class="campos">
+  <ion-label autocomplete="on" position="floating">CUIL</ion-label>
+  <ion-input type="number" name="cuil" [(ngModel)]="cuil" required></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Perfil</ion-label>
+  <ion-select placeholder="Seleccionar" name="perfil" [(ngModel)]="perfil">
+    <ion-select-option value="0">Dueño</ion-select-option>
+    <ion-select-option value="1">Supervisor</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<div class="icons">
+  <div class="contenedor">
+    <app-qr-lector title='Carga tu DNI' (info_escaneada)=recibir_info($event)></app-qr-lector>
+  </div>
+  <div class="contenedor">
+    <app-camera-selector title='Carga tu foto' [imagen_cargada]=foto_perfil (image_taken)=recibir_foto($event)></app-camera-selector>
+  </div>
+</div>
+
+<ion-item lines="none" class="campos">
+  <ion-label autocomplete="on" position="floating">Correo</ion-label>
+  <ion-input type="mail" name="correo" [(ngModel)]="correo" required></ion-input>
+</ion-item>
+<ion-item lines="none" class="campos">
+  <ion-label autocomplete="on" position="floating">Contraseña</ion-label>
+  <ion-input type="password" name="clave" [(ngModel)]="clave" required></ion-input>
+</ion-item>
+<div class="boton">
+  <ion-button class="boton" expand="block" color="warning" (click)="registrar()">Registrar</ion-button>
+</div>
+</ion-content>

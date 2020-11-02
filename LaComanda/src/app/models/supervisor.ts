@@ -1,7 +1,9 @@
 export interface Supervisor {
-  nombre: string,
-  apellido: string,
-  foto: string,
-  perfil: string,
-  clave: string
+  docId?: string,
+  authId?: string,
+  nombre: string;
+  apellido: string;
+  dni: string;
+  cuil: string;
+  foto: string;
 }
