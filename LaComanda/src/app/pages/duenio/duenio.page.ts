@@ -18,8 +18,12 @@ export class DuenioPage implements OnInit {
   ngOnInit() {
   }
 
- async recibir_info(info:any){
+ recibir_info(info:any){
    alert(info)
+ }
+ 
+ recibir_foto(foto:any){
+   alert(foto);
  }
 
   presentActionSheet(): void {

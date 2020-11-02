@@ -22,10 +22,12 @@ const routes: Routes = [
   {
     path: 'alta-empleado',
     loadChildren: () => import('./pages/alta-empleado/alta-empleado.module').then( m => m.AltaEmpleadoPageModule)
-  },  {
-    path: 'alta-producto',
-    loadChildren: () => import('./pages/alta-producto/alta-producto.module').then( m => m.AltaProductoPageModule)
   },
+  {
+    path: 'duenio',
+    loadChildren: () => import('./pages/duenio/duenio.module').then( m => m.DuenioPageModule)
+  },
+
 
 ];
 
