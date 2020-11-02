@@ -13,8 +13,8 @@ export class CameraSelectorComponent implements OnInit {
   @Input() title:string;
   @Input() imagen_cargada:string;
   @Output() image_taken: EventEmitter<any> = new EventEmitter<any>();
+  @Output() image_data: EventEmitter<any> = new EventEmitter<any>();
   imagen_enviada:boolean=false;
-  img: string;
   imagenVista = 'assets/img/noimage.png';
   constructor(private file: File,
     private camera: Camera,
@@ -34,8 +34,7 @@ export class CameraSelectorComponent implements OnInit {
 
   tomar_foto(): void {
     this.camera.getPicture({cameraDirection: Direction.BACK, correctOrientation: true}).then(imageData => {
-      this.img = imageData;
-
+      this.image_data.emit(imageData);
       this.file.readAsDataURL(Utils.getDirectory(imageData), Utils.getFilename(imageData))
       .then(base64Url => {
         this.imagenVista = base64Url;

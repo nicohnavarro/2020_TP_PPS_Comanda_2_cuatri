@@ -34,7 +34,7 @@
     <app-qr-lector title='Carga tu DNI' (info_escaneada)=recibir_info($event)></app-qr-lector>
   </div>
   <div class="contenedor">
-    <app-camera-selector title='Carga tu foto' [imagen_cargada]=foto_perfil (image_taken)=recibir_foto($event)></app-camera-selector>
+    <app-camera-selector title='Carga tu foto' [imagen_cargada]=foto_perfil (image_data)=recibir_data($event) (image_taken)=recibir_foto($event)></app-camera-selector>
   </div>
 </div>
 

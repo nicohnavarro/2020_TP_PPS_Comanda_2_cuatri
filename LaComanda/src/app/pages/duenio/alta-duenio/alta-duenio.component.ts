@@ -22,6 +22,7 @@ export class AltaDuenioComponent implements OnInit {
   clave:string;
   correo:string;
   perfil:string;
+  imagen_data:string;
 
   constructor(private file: File,
     private authService:AuthService,
@@ -48,23 +49,32 @@ export class AltaDuenioComponent implements OnInit {
   recibir_foto(foto: any) {
     this.foto_perfil=foto;
   }
+  recibir_data(data:any){
+    this.imagen_data = data;
+  }
 
   registrar(): void {
-    this.file.readAsArrayBuffer(Utils.getDirectory(this.foto_perfil), Utils.getFilename(this.foto_perfil))
-    .then(arrayBuffer => {
-      const blob = new Blob([arrayBuffer], { type: 'image/jpg' });
-      const storagePath = `images/${new Date().toLocaleDateString().split('/').join('-')}__${Math.random().toString(36).substring(2)}`;
-
-      this.authService.register(this.correo, this.clave).then(cred => {
-        this.storage.upload(storagePath, blob).then(async task => {
-          this.cargar_perfil(this.perfil,cred,task);
-          this.presentToast('Cargado con exito','success')
-        })
-        .catch(err => {
-          this.presentToast(err,'danger')
+    try{
+      this.file.readAsArrayBuffer(Utils.getDirectory(this.imagen_data), Utils.getFilename(this.imagen_data))
+      .then(arrayBuffer => {
+        const blob = new Blob([arrayBuffer], { type: 'image/jpg' });
+        const storagePath = `images/${new Date().toLocaleDateString().split('/').join('-')}__${Math.random().toString(36).substring(2)}`;
+  
+        this.authService.register(this.correo, this.clave).then(cred => {
+          this.storage.upload(storagePath, blob).then(async task => {
+            await this.cargar_perfil(this.perfil,cred,task);
+            this.presentToast('Cargado con exito','success')
+          })
+          .catch(err => {
+            this.presentToast(err,'danger')
+          });
         });
       });
-    });
+    }
+    catch(err) 
+    {
+      this.presentToast(err,'danger');
+    }
   }
 
   async cargar_perfil(perfil:string,cred:any,task:any){
